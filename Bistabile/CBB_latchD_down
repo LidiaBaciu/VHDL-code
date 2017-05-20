@@ -1,0 +1,15 @@
+
+entity latchD is
+    Port ( iDate : in  STD_LOGIC;
+           oY : out  STD_LOGIC;
+           iGate : in  STD_LOGIC);
+end latchD;
+
+architecture Behavioral of latchD is
+
+begin
+
+	oY <= iDate when iGate='0';
+
+end Behavioral;
+
