@@ -1,0 +1,19 @@
+
+entity complNbiti is
+
+	generic(n:integer:= 8);
+    Port ( iaA : in  STD_LOGIC_VECTOR ( n-1 downto 0);
+           oaY : out  STD_LOGIC_VECTOR ( n-1 downto 0);
+           iComplement : in  STD_LOGIC);
+end complNbiti;
+
+architecture Behavioral of complNbiti is
+
+	
+begin
+
+	oaY <= not(iaA) when iComplement='1' else
+			 iaA;
+	
+end Behavioral;
+
