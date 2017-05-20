@@ -1,0 +1,49 @@
+
+entity mux16x8 is
+	port( iasel: in std_logic_vector ( 3 downto 0 );
+	      iadata0: in std_logic_vector ( 7 downto 0 );
+			iadata1: in std_logic_vector ( 7 downto 0 );
+			iadata2: in std_logic_vector ( 7 downto 0 );
+			iadata3: in std_logic_vector ( 7 downto 0 );
+			iadata4: in std_logic_vector ( 7 downto 0 );
+			iadata5: in std_logic_vector ( 7 downto 0 );
+			iadata6: in std_logic_vector ( 7 downto 0 );
+			iadata7: in std_logic_vector ( 7 downto 0 );
+			iadata8: in std_logic_vector ( 7 downto 0 );
+			iadata9: in std_logic_vector ( 7 downto 0 );
+			iadata10: in std_logic_vector ( 7 downto 0 );
+			iadata11: in std_logic_vector ( 7 downto 0 );
+			iadata12: in std_logic_vector ( 7 downto 0 );
+			iadata13: in std_logic_vector ( 7 downto 0 );
+			iadata14: in std_logic_vector ( 7 downto 0 );
+			iadata15: in std_logic_vector ( 7 downto 0 );
+			oay: out std_logic_vector ( 7 downto 0 );
+			ie1: in std_logic;
+			ie0n: in std_logic);
+end mux16x8;
+
+architecture Behavioral of mux16x8 is
+	signal say: std_logic_vector (7 downto 0);
+begin
+	with iasel select
+	 say <= iadata0 when "0000",
+				iadata1 when "0001",
+				iadata2 when "0010",
+				iadata3 when "0011",
+				iadata4 when "0100",
+				iadata5 when "0101",
+				iadata6 when "0110",
+				iadata7 when "0111",
+				iadata8 when "1000",
+				iadata9 when "1001",
+				iadata10 when "1010",
+				iadata11 when "1011",
+				iadata12 when "1100",
+				iadata13 when "1101",
+				iadata14 when "1110",
+				iadata15 when "1111",
+				"00000000" when others;
+				
+	oay <= say when (ie1 = '1' and ie0n = '0') else "ZZZZZZZZ";
+end Behavioral;
+
