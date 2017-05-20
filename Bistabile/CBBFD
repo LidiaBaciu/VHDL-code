@@ -1,0 +1,19 @@
+
+entity cbbffd is
+    Port ( iClk : in  STD_LOGIC;
+           iaData : in  STD_LOGIC_VECTOR(1 downto 0);
+           iClear : in  STD_LOGIC;
+           oY : out  STD_LOGIC_VECTOR(1 downto 0));
+end cbbffd;
+
+architecture Behavioral of cbbffd is
+
+begin
+
+	oY <= "00" when iClear='1' else
+			iaData when falling_edge(iClk);
+			
+
+
+end Behavioral;
+
