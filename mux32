@@ -1,0 +1,21 @@
+
+entity mux32 is
+    Port ( iaSel : in  STD_LOGIC_VECTOR (4 downto 0);
+           iaData : in  STD_LOGIC_VECTOR (31 downto 0);
+           E0n : in  STD_LOGIC;
+           E1 : in  STD_LOGIC;
+           oY : out  STD_LOGIC);
+end mux32;
+
+architecture Behavioral of mux32 is
+
+	signal sY: STD_LOGIC;
+	
+begin
+
+	sY <= iaData(conv_integer(iaSel));
+	
+	oY <= sY when E0n='0' and E1='1' else 'Z';
+
+end Behavioral;
+
