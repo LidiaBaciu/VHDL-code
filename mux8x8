@@ -1,0 +1,34 @@
+
+entity mux8x8 is
+    Port ( iaSel : in  STD_LOGIC_VECTOR (2 downto 0);
+           iaData0 : in  STD_LOGIC_VECTOR (7 downto 0);
+           iaData1 : in  STD_LOGIC_VECTOR (7 downto 0);
+           iaData2 : in  STD_LOGIC_VECTOR (7 downto 0);
+           iaData3 : in  STD_LOGIC_VECTOR (7 downto 0);
+           iaData4 : in  STD_LOGIC_VECTOR (7 downto 0);
+           iaData5 : in  STD_LOGIC_VECTOR (7 downto 0);
+           iaData6 : in  STD_LOGIC_VECTOR (7 downto 0);
+           iaData7 : in  STD_LOGIC_VECTOR (7 downto 0);
+           oaY : out  STD_LOGIC_VECTOR (7 downto 0));
+end mux8x8;
+
+architecture Behavioral of mux8x8 is
+
+signal saY: STD_LOGIC_VECTOR(7 downto 0);
+
+begin
+	with iaSel select
+	
+	oaY <= iaData0 when "000",
+			 iaData1 when "001",
+			 iaData2 when "010",
+			 iaData3 when "011",
+			 iaData4 when "100",
+			 iaData5 when "101",
+			 iaData6 when "110",
+			 iaData7 when "111",
+			 "00000000" when others;
+
+
+end Behavioral;
+
