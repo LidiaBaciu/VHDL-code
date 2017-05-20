@@ -1,0 +1,21 @@
+
+entity dec4pe16 is
+    Port ( iaAdr : in  STD_LOGIC_VECTOR (3 downto 0);
+           oaY : out  STD_LOGIC_VECTOR (15 downto 0);
+           iEnable1 : in  STD_LOGIC;
+           iEnable0n : in  STD_LOGIC);
+end dec4pe16;
+
+architecture Behavioral of dec4pe16 is
+
+	signal saY: STD_LOGIC_VECTOR (15 downto 0);
+
+begin
+
+	saY <= conv_std_logic_vector(2**conv_integer(iaAdr), 16);
+	
+	oaY <= saY when iEnable1='1' and iEnable0n='0' else X"0000";
+
+
+end Behavioral;
+
