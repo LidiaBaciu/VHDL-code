@@ -1,0 +1,16 @@
+
+entity verificareParitate is
+    Port ( iaA : in  STD_LOGIC_VECTOR (7 downto 0);
+           iSTP : in  STD_LOGIC;
+           oY : out  STD_LOGIC);
+end verificareParitate;
+
+architecture Behavioral of verificareParitate is
+
+begin
+
+	oY <= iaA(0) xor iaA(1) xor iaA(2) xor iaA(3) xor iaA(4) xor iaA(5) xor iaA(6) xor iaA(7) xor iSTP;
+	
+
+end Behavioral;
+
