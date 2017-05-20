@@ -1,0 +1,32 @@
+
+entity demux3pe8x4 is
+    Port ( E0n : in  STD_LOGIC;
+           E1 : in  STD_LOGIC;
+           iaAdr : in  STD_LOGIC_VECTOR (2 downto 0);
+           iaData : in  STD_LOGIC_VECTOR (3 downto 0);
+           oaA : out  STD_LOGIC_VECTOR (3 downto 0);
+           oaB : out  STD_LOGIC_VECTOR (3 downto 0);
+           oaC : out  STD_LOGIC_VECTOR (3 downto 0);
+           oaD : out  STD_LOGIC_VECTOR (3 downto 0);
+           oaE : out  STD_LOGIC_VECTOR (3 downto 0);
+           oaF : out  STD_LOGIC_VECTOR (3 downto 0);
+           oaG : out  STD_LOGIC_VECTOR (3 downto 0);
+           oaH : out  STD_LOGIC_VECTOR (3 downto 0));
+end demux3pe8x4;
+
+architecture Behavioral of demux3pe8x4 is
+
+begin
+
+	oaA <= iaData when iaAdr="000" and E0n='0' and E1='1' else "0000";
+	oaB <= iaData when iaAdr="001" and E0n='0' and E1='1' else "0000";
+	oaC <= iaData when iaAdr="010" and E0n='0' and E1='1' else "0000";
+	oaD <= iaData when iaAdr="011" and E0n='0' and E1='1' else "0000";
+	oaE <= iaData when iaAdr="100" and E0n='0' and E1='1' else "0000";
+	oaF <= iaData when iaAdr="101" and E0n='0' and E1='1' else "0000";
+	oaG <= iaData when iaAdr="110" and E0n='0' and E1='1' else "0000";
+	oaH <= iaData when iaAdr="111" and E0n='0' and E1='1' else "0000";
+	
+
+end Behavioral;
+
