@@ -1,0 +1,18 @@
+
+entity demux5pe32 is
+    Port ( iaData : in  STD_LOGIC;
+           iaAdr : in  STD_LOGIC_VECTOR (4 downto 0);
+           oaY : out  STD_LOGIC_VECTOR (31 downto 0);
+			  iEnable: in STD_LOGIC);
+end demux5pe32;
+
+architecture Behavioral of demux5pe32 is
+	signal saY: STD_LOGIC_VECTOR (31 downto 0);
+	
+begin
+
+	saY <= conv_std_logic_vector(2**conv_integer(iaAdr), 32);
+	oaY <= saY when (iaData='1' and iEnable='1') else conv_std_logic_vector(0, 32);
+
+end Behavioral;
+
