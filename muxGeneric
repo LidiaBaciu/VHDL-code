@@ -1,0 +1,25 @@
+
+entity muxGeneric is
+generic 
+	(
+		n: integer:=1
+		
+	);
+	
+    Port ( iaData : in  STD_LOGIC_VECTOR(2**n-1 downto 0);
+           iaSel : in  STD_LOGIC_VECTOR(n-1 downto 0);
+           E0n : in  STD_LOGIC;
+           E1 : in  STD_LOGIC;
+           oY : out  STD_LOGIC);
+end muxGeneric;
+
+architecture Behavioral of muxGeneric is
+	signal sY: STD_LOGIC;
+begin
+
+	sY <= iaData(conv_integer(iaSel));
+	
+	oY <= sY when E0n='0' and E1='1' else 'Z';
+	
+end Behavioral;
+
