@@ -1,0 +1,19 @@
+
+entity latchDd is
+    Port ( iClk : in  STD_LOGIC;
+           iClear : in  STD_LOGIC;
+           iPreset : in  STD_LOGIC;
+           iData : in  STD_LOGIC;
+           oY : out  STD_LOGIC);
+end latchDd;
+
+architecture Behavioral of latchDd is
+
+begin
+
+	oY <= '0' when iClear='1' else
+			'1' when iPreset='1' else
+			iData when rising_edge(iClk);
+
+end Behavioral;
+
