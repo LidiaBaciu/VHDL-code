@@ -1,0 +1,21 @@
+
+entity sumBinar32biti is
+    Port ( iaA : in  STD_LOGIC_VECTOR (31 downto 0);
+           iaB : in  STD_LOGIC_VECTOR (31 downto 0);
+           iC : in  STD_LOGIC;
+           oaS : out  STD_LOGIC_VECTOR (31 downto 0);
+           oc : out  STD_LOGIC);
+end sumBinar32biti;
+
+architecture Behavioral of sumBinar32biti is
+
+signal saTampon: STD_LOGIC_VECTOR (32 downto 0);
+
+begin
+
+saTampon <= ('0'&iaA)+('0'&iaB)+(X"00000"&iC);
+oaS <= saTampon(31 downto 0);
+oC <= saTampon(32);
+
+end Behavioral;
+
