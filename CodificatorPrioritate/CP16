@@ -1,0 +1,32 @@
+
+entity cop16 is
+    Port ( iaData : in  STD_LOGIC_VECTOR (15 downto 0);
+           oaCod : out  STD_LOGIC_VECTOR (3 downto 0);
+           oGs : out  STD_LOGIC);
+end cop16;
+
+architecture Behavioral of cop16 is
+
+begin
+
+	oaCod <= "1111" when iaData(15)='1' else
+				"1110" when iaData(14)='1' else
+				"1101" when iaData(13)='1' else
+				"1100" when iaData(12)='1' else
+				"1011" when iaData(11)='1' else
+				"1010" when iaData(10)='1' else
+				"1001" when iaData(9)='1' else
+				"1000" when iaData(8)='1' else
+				"0111" when iaData(7)='1' else
+				"0110" when iaData(6)='1' else
+				"0101" when iaData(5)='1' else
+				"0100" when iaData(4)='1' else
+				"0011" when iaData(3)='1' else
+				"0010" when iaData(2)='1' else
+				"0001" when iaData(1)='1' else
+				"0000" when iaData(0)='1' else
+				"0000";
+
+	oGs <= '1' when iaData /= X"000" else '0';
+end Behavioral;
+
