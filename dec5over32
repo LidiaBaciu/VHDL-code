@@ -1,0 +1,21 @@
+
+entity dec5pe32 is
+	Port( iaAdr: STD_LOGIC_VECTOR(4 downto 0);
+			oaY: STD_LOGIC_VECTOR(31 downto 0);
+			iEnable1: STD_LOGIC;
+			iEnable2: STD_LOGIC;
+			iEnable3: STD_LOGIC);
+end dec5pe32;
+
+architecture Behavioral of dec5pe32 is
+	SIGNAL saY: STD_LOGIC_VECTOR(31 downto 0);
+	
+begin
+
+	saY <= conv_std_logic_vector(2**conv_integer(iaAdr), 32);
+	
+	oaY <= saY when (iEnable1='1' and iEnable2='1' and iEnable3='0') else conv_std_logic_vector(0, 32);
+
+
+end Behavioral;
+
