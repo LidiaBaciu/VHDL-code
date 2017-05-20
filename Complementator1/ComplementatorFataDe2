@@ -1,0 +1,16 @@
+
+entity complFataDe2biti is
+    Port ( iaA : in  STD_LOGIC_VECTOR (15 downto 0);
+           oaY : out  STD_LOGIC_VECTOR (15 downto 0);
+           iComplementat : in  STD_LOGIC);
+end complFataDe2biti;
+
+architecture Behavioral of complFataDe2biti is
+
+begin
+
+	oaY <= (not(iaA) + "0000000000000001") when iComplementat='1' else
+			 iaA;
+			 
+end Behavioral;
+
