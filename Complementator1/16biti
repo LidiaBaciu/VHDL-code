@@ -1,0 +1,16 @@
+
+entity compl16biti is
+    Port ( iaA : in  STD_LOGIC_VECTOR (15 downto 0);
+           oaY : out  STD_LOGIC_VECTOR (15 downto 0);
+           iCn : in  STD_LOGIC);
+end compl16biti;
+
+architecture Behavioral of compl16biti is
+
+begin
+
+	oaY <= not(iaA) when iCn='0' else
+			 iaA;
+
+end Behavioral;
+
