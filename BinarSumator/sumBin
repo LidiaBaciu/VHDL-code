@@ -1,0 +1,17 @@
+
+entity sumBin is
+    Port ( iA : in  STD_LOGIC;
+           iB : in  STD_LOGIC;
+           iC : in  STD_LOGIC;
+           oS : out  STD_LOGIC;
+           oC : out  STD_LOGIC);
+end sumBin;
+
+architecture Behavioral of sumBin is
+
+begin
+
+	oS <= iA xor iB xor iC;
+	oC <= (iA and iB) or (iA and iC) or (iB and iC);
+
+end Behavioral;
